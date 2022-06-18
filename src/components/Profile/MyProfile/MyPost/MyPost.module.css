@@ -1,0 +1,48 @@
+.addPostWrapper {
+    border-radius: 10px;
+    border: 2px solid #444444;
+    margin: 20px 4px 4px 4px;
+}
+
+.addPostTitle {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.addPost textarea {
+    display: block;
+    margin: 20px auto 0;
+    width: 400px;
+    height: 150px;
+    outline: none;
+    background-color: #444444;
+    border: none;
+    resize: none;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+.addPost button {
+    display: block;
+    margin: 20px auto 5px;
+
+    height: 40px;
+    width: 100px;
+    background-color: palevioletred;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.addPost button:hover {
+    transition: 0.5s;
+    background-color: darksalmon;
+}
+
+.addPost button:active {
+    transition: 0.5s;
+    background-color: deeppink;
+}

@@ -1,0 +1,28 @@
+.myProfile {
+    background-color: #2b2924;
+    grid-area: myProfileGrid;
+    border-radius: 10px;
+    border: 2px solid #444444;
+}
+
+.topImg {
+    width: 100%;
+    height: 300px;
+}
+
+.avatarAndDescr {
+    display: flex;
+    justify-content: start;
+    height: 200px;
+    border: 2px solid #444444;
+    margin: 4px;
+    border-radius: 10px;
+}
+.avatar img{
+    height: 180px;
+}
+
+.descr {
+    font-size: 20px;
+    font-weight: 900;
+}
