@@ -13,8 +13,8 @@ const App = () => {
                 <Navbar/>
                 <div className={AppStyle.appWrapperContet}>
                     <Routes>
-                        <Route path={'/profile'} element={<MyProfile/>}/>
-                        <Route path={'/dialogs'} element={<Dialogs/>}/>
+                        <Route path={'/profile/*'} element={<MyProfile/>}/>
+                        <Route path={'/dialogs/*'} element={<Dialogs/>}/>
                     </Routes>
                 </div>
             </div>
