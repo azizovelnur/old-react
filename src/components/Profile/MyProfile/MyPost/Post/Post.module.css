@@ -9,3 +9,12 @@
     height: 100px;
     border-radius: 100%;
 }
+
+.postProfile img {
+    display: block;
+}
+
+.postProfile {
+    display: flex;
+    align-items: center;
+}

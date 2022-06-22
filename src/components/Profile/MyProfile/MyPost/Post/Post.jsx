@@ -1,12 +1,13 @@
 import React from 'react';
-import linus from '../../../../../images/linus.jpg'
+import ninja from '../../../../../images/ninja.png'
 import PostStyle from './Post.module.css'
 
 const Post = (props) => {
     return (
         <div className={PostStyle.item}>
-            <div>
-                <img src={linus} alt=""/>
+            <div className={PostStyle.postProfile}>
+                <img src={ninja} alt=""/>
+                <div>Elnur</div>
             </div>
             <div>
                 {props.message}
