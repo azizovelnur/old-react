@@ -6,10 +6,16 @@ import Post from "./Post/Post";
 
 const MyPost = () => {
 
-    let postData = [
+    let posts = [
         {id: 1, message: 'React', likesCount: 1000},
         {id: 2, message: 'Vue', likesCount: 500}
     ]
+
+    let postsElement = posts.map( (post) => {
+        return (
+                <Post message={post.message} likesCount={post.likesCount}/>
+            )
+    })
 
     return (
         <div className={MyPostStyle.addPostWrapper}>
@@ -25,8 +31,7 @@ const MyPost = () => {
             </div>
 
             <div className={MyPostStyle.posts}>
-                <Post message={postData[0].message} likesCount={postData[0].likesCount}/>
-                <Post message={postData[1].message} likesCount={postData[1].likesCount}/>
+                {postsElement}
             </div>
         </div>
     );
