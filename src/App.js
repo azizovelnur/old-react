@@ -5,7 +5,13 @@ import AppStyle from './styleApp/App.module.css'
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
-const App = () => {
+
+
+
+
+
+const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className={AppStyle.appWrapper}>
@@ -13,8 +19,8 @@ const App = () => {
                 <Navbar/>
                 <div className={AppStyle.appWrapperContet}>
                     <Routes>
-                        <Route path={'/profile/*'} element={<MyProfile/>}/>
-                        <Route path={'/dialogs/*'} element={<Dialogs/>}/>
+                        <Route path={'/profile/*'} element={<MyProfile posts={props.posts}/>}/>
+                        <Route path={'/dialogs/*'} element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>}/>
                     </Routes>
                 </div>
             </div>

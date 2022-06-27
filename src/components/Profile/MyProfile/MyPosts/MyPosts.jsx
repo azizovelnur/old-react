@@ -1,17 +1,13 @@
 import React from 'react';
-import MyPostStyle from './MyPost.module.css'
+import MyPostStyle from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 
 
-const MyPost = () => {
+const MyPosts = (props) => {
 
-    let posts = [
-        {id: 1, message: 'React', likesCount: 1000},
-        {id: 2, message: 'Vue', likesCount: 500}
-    ]
 
-    let postsElement = posts.map( (post) => {
+    let postsElement = props.postsData.map( (post) => {
         return (
                 <Post message={post.message} likesCount={post.likesCount}/>
             )
@@ -37,4 +33,4 @@ const MyPost = () => {
     );
 };
 
-export default MyPost;
+export default MyPosts;
