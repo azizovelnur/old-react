@@ -13,7 +13,7 @@ const MyProfile = (props) => {
         <main className={MyProfileStyle.myProfile}>
             <div>
                 <ProfileInfo/>
-                <MyPosts postsData={props.state.posts}/>
+                <MyPosts postsData={props.state.posts} addPost={props.addPost}/>
             </div>
         </main>
     );
