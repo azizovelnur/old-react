@@ -1,54 +1,58 @@
-let rerenderEntireTree = () => {
-    console.log('state changed')
-}
+let store = {
+    _state:  {
+        profilePage: {
+            posts : [
+                {id: 1, message: 'React', likesCount: 1000},
+                {id: 2, message: 'Vue', likesCount: 500}
+            ],
+            newPostText: 'el'
+        },
 
+        messagesPage: {
+            dialogsData: [
+                {id: 1, name: 'Artem'},
+                {id: 2, name: 'Dima'},
+                {id: 3, name: 'Timur'}
+            ],
 
-
-let state =  {
-    profilePage: {
-        posts : [
-            {id: 1, message: 'React', likesCount: 1000},
-            {id: 2, message: 'Vue', likesCount: 500}
-        ],
-        newPostText: ''
+            messagesData: [
+                {id: 1, messageText: 'Hi'},
+                {id: 2, messageText: 'Hello'},
+                {id: 3, messageText: 'Wazzup'}
+            ]
+        }
     },
 
-    messagesPage: {
-        dialogsData: [
-            {id: 1, name: 'Artem'},
-            {id: 2, name: 'Dima'},
-            {id: 3, name: 'Timur'}
-        ],
+    getState() {
+        return this._state;
+    },
 
-        messagesData: [
-            {id: 1, messageText: 'Hi'},
-            {id: 2, messageText: 'Hello'},
-            {id: 3, messageText: 'Wazzup'}
-        ]
+    _callSubscriber() {
+        console.log('state changed')
+    },
+
+    addPost() {
+        let newPost = {
+            id: 3,
+            message: this._state.profilePage.newPostText,
+            likesCount: 10000,
+        }
+
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ''
+        this._callSubscriber(this._state)
+    },
+
+    updateNewPostText(newText) {
+        this._state.profilePage.newPostText = newText
+        this._callSubscriber(this._state)
+    },
+
+    subscribe(observer) {
+        this._callSubscriber = observer
     }
 }
 
 
-export const addPost = () => {
-    let newPost = {
-        id: 3,
-        message: state.profilePage.newPostText,
-        likesCount: 10000,
-    }
+export default store
 
-    state.profilePage.posts.push(newPost)
-    state.profilePage.newPostText = ''
-    rerenderEntireTree(state)
-}
-
-export const updateNewPostText = (newText) => {
-    state.profilePage.newPostText = newText
-    rerenderEntireTree(state)
-}
-
-export const subscribe = (observer) => {
-    rerenderEntireTree = observer
-}
-
-
-export default state
