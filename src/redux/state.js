@@ -5,7 +5,7 @@ let store = {
                 {id: 1, message: 'React', likesCount: 1000},
                 {id: 2, message: 'Vue', likesCount: 500}
             ],
-            newPostText: 'el'
+            newPostText: ''
         },
 
         messagesPage: {
@@ -31,21 +31,23 @@ let store = {
         console.log('state changed')
     },
 
-    addPost() {
-        let newPost = {
-            id: 3,
-            message: this._state.profilePage.newPostText,
-            likesCount: 10000,
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 3,
+                message: this._state.profilePage.newPostText,
+                likesCount: 10000,
+            }
+
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this._callSubscriber(this._state)
         }
 
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._callSubscriber(this._state)
-    },
-
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText
-        this._callSubscriber(this._state)
+        else if (action.type === "UPDATE-NEW-POST-TEXT") {
+            this._state.profilePage.newPostText = action.postText
+            this._callSubscriber(this._state)
+        }
     },
 
     subscribe(observer) {
@@ -53,6 +55,8 @@ let store = {
     }
 }
 
+
+window.store = store
 
 export default store
 
