@@ -4,6 +4,7 @@ import sakura from '../../../images/sakura.png'
 import samurai from '../../../images/samurai.png'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import MyPostsContainer from "./MyPosts/myPostsContainer";
 
 
 
@@ -13,9 +14,7 @@ const MyProfile = (props) => {
         <main className={MyProfileStyle.myProfile}>
             <div>
                 <ProfileInfo/>
-                <MyPosts postsData = {props.profilePage.posts}
-                                     newPostText={props.profilePage.newPostText}
-                                     dispatch={props.dispatch}/>
+                <MyPostsContainer store={props.store}/>
             </div>
         </main>
     );
