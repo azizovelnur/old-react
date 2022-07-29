@@ -4,17 +4,17 @@ import sakura from '../../../images/sakura.png'
 import samurai from '../../../images/samurai.png'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MyPostsContainer from "./MyPosts/myPostsContainer";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
 
 
-const MyProfile = (props) => {
+const MyProfile = () => {
     return (
         <main className={MyProfileStyle.myProfile}>
             <div>
                 <ProfileInfo/>
-                <MyPostsContainer store={props.store}/>
+                <MyPostsContainer/>
             </div>
         </main>
     );
