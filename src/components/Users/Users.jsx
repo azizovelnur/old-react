@@ -1,33 +1,16 @@
 import React from 'react';
 import usersStyles from './users.module.css'
+import * as axios from 'axios'
+import linus from '../../images/linus.jpg'
 
 const Users = (props) => {
 
-   if(props.users.length === 0) {
-       props.setUsers([
-               {id: 1,
-                   followed: false,
-                   userPhoto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Tux.png/220px-Tux.png',
-                   fullName: 'Elnur',
-                   status: 'proger',
-                   location: {city: 'Nefteugansk', country: 'Russia'}},
+    if (props.users.length === 0) {
 
-               {id: 2,
-                   followed: false,
-                   userPhoto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Tux.png/220px-Tux.png',
-                   fullName: 'Artem',
-                   status: 'proger',
-                   location: {city: 'Kazan', country: 'Russia'}},
-
-               {id: 3,
-                   followed: true,
-                   userPhoto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Tux.png/220px-Tux.png',
-                   fullName: 'Dima',
-                   status: 'proger',
-                   location: {city: 'Minsk', country: 'Belarus'}}
-           ]
-       )
-   }
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(responce => {
+            props.setUsers(responce.data.items)
+        })
+    }
 
     return (
         <div>
@@ -35,25 +18,30 @@ const Users = (props) => {
                 props.users.map(u => <div key={u.id}>
                     <span>
                         <div>
-                            <img src={u.userPhoto} className={usersStyles.userPhoto}/>
+                            <img src={u.photos.small != null ? u.photos.small : linus}
+                                 className={usersStyles.userPhoto}/>
                         </div>
                     </span>
                     <span>
                         <div>
                             {u.followed
-                                ? <button onClick={() => {props.unFollow(u.id)} }>unFollow</button>
-                                : <button onClick={() => {props.follow(u.id)} } >Follow</button>}
+                                ? <button onClick={() => {
+                                    props.unFollow(u.id)
+                                }}>unFollow</button>
+                                : <button onClick={() => {
+                                    props.follow(u.id)
+                                }}>Follow</button>}
                         </div>
                     </span>
 
                     <span>
                         <span>
-                            <div>{u.fullName}</div>
+                            <div>{u.name}</div>
                             <div>{u.status}</div>
                         </span>
                         <span>
-                            <div>{u.location.country}</div>
-                            <div>{u.location.city}</div>
+                            <div>{'u.location.country'}</div>
+                            <div>{'u.location.city'}</div>
                         </span>
                     </span>
                 </div>)
