@@ -1,3 +1,26 @@
+.userBorder {
+    border: 2px solid #444444;
+    border-radius: 5px;
+    margin: 8px;
+}
+
 .userPhoto {
     width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    height: 40px;
+    width: 200px;
+    background-color: gray;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
 }
