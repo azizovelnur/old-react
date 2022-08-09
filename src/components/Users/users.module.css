@@ -24,3 +24,9 @@
     font-size: 20px;
     border-radius: 5px;
 }
+
+.selectedPage {
+    width: 20px;
+    height: 20px;
+    font-weight: 900;
+}
