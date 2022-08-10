@@ -9,11 +9,11 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
 
-const MyProfile = () => {
+const MyProfile = (props) => {
     return (
         <main className={MyProfileStyle.myProfile}>
             <div>
-                <ProfileInfo/>
+                <ProfileInfo profile={props.profile}/>
                 <MyPostsContainer/>
             </div>
         </main>
