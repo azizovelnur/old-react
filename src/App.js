@@ -1,10 +1,10 @@
-import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
 import AppStyle from './styleApp/App.module.css'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import MyProfileContainer from "./components/Profile/MyProfile/MyProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 
@@ -16,7 +16,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className={AppStyle.appWrapper}>
-                <Header/>
+                <HeaderContainer/>
                 <Navbar/>
                 <div className={AppStyle.appWrapperContet}>
                     <Routes>

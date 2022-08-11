@@ -3,10 +3,28 @@
     grid-area: headerGrid;
     border-radius: 10px;
     border: 2px solid #444444;
+    position: relative;
 }
 
 .headerImg {
     display: block;
     margin: 0 auto;
     height: 98px;
+}
+
+
+.loginBlock {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    font-size: 24px;
+}
+
+.login {
+    color: white;
+    text-decoration: none;
+}
+
+.login:hover {
+    color: blue;
 }
